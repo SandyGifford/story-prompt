@@ -1,7 +1,7 @@
 const { spawn } = require("child_process");
 const path = require("path");
 
-const CLI_PATH = path.join(__dirname, "../engineCli.js");
+const CLI_PATH = path.join(__dirname, "../src/cli.js");
 
 async function runCli(...args) {
 	const cliProc = spawn("node", [CLI_PATH, ...args]);

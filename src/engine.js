@@ -1,8 +1,8 @@
 const assert = require("assert");
-// const fs = require("fs");
-// const { promisify } = require("util");
+const fs = require("fs");
+const { promisify } = require("util");
 
-// const writeFile = promisify(fs.writeFile);
+const writeFile = promisify(fs.writeFile);
 
 function commonPaperTemplateEngine(template, ...inputs) {
 	let index = 0;
