@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { DEFAULT_DATA_PATH } = require("./consts");
 
-function commonPaperTemplateEngine(template, options, ...inputs) {
+function commonPaperTemplateStoryGen(template, options, ...inputs) {
 	if (typeof options !== "object") {
 		// it's not actually an options object, it's just another input
 		inputs.unshift(options);
@@ -68,5 +68,5 @@ function commonPaperTemplateEngine(template, options, ...inputs) {
 }
 
 module.exports = {
-	commonPaperTemplateEngine,
+	commonPaperTemplateStoryGen,
 }

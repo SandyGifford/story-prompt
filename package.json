@@ -4,14 +4,16 @@
 	"description": "",
 	"scripts": {
 		"test": "jest",
-	"engine": "node ./src/engineCli.js",
-	"analytics": "node ./src/analyticsCli.js"
+		"storyGen": "node ./src/storyGenCli.js",
+		"analytics": "node ./src/analyticsCli.js"
 	},
 	"author": "Sanford Gifford",
 	"license": "Apache-2.0",
+	"devDependencies": {
+		"jest": "^27.3.1"
+	},
 	"dependencies": {
 		"dotenv": "^10.0.0",
-		"jest": "^27.3.1",
 		"tabula": "^1.10.0"
 	}
 }

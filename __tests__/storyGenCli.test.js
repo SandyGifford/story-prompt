@@ -1,7 +1,7 @@
 const { spawn } = require("child_process");
 const path = require("path");
 
-const CLI_PATH = path.join(__dirname, "../src/engineCli.js");
+const CLI_PATH = path.join(__dirname, "../src/storyGenCli.js");
 
 async function runCli(...args) {
 	const cliProc = spawn("node", [CLI_PATH, ...args]);
@@ -31,7 +31,7 @@ async function expectToThrow(...args) {
 	expect(() => { if (err) throw err }).toThrow();
 }
 
-test("engineCli", async () => {
+test("storyGenCli", async () => {
 	// normal usage
 	expect(await runCli(3, "mile", "school", "blue", "rock")).toBe("One day Anna was walking her 3 mile commute to school and found a blue rock on the ground.");
 	expect(await runCli("3", "mile", "school", "blue", "rock")).toBe("One day Anna was walking her 3 mile commute to school and found a blue rock on the ground.");
@@ -49,7 +49,7 @@ test("engineCli", async () => {
 	expect(await runCli(3, "", "", "blue", "")).toBe("One day Anna was walking her 3  commute to  and found a blue  on the ground.");
 	expect(await runCli(3, "", "", "", "")).toBe("One day Anna was walking her 3  commute to  and found a   on the ground.");
 
-	// almost-to-long-strings (see note in similar test in engine.test.js about non-string values for NUMBER inputs)
+	// almost-to-long-strings (see note in similar test in storyGen.test.js about non-string values for NUMBER inputs)
 	expect(await runCli(3, "12345678901234567890", "school", "blue", "rock")).toBe("One day Anna was walking her 3 12345678901234567890 commute to school and found a blue rock on the ground.");
 	expect(await runCli(3, "12345678901234567890", "school", "blue", "12345678901234567890")).toBe("One day Anna was walking her 3 12345678901234567890 commute to school and found a blue 12345678901234567890 on the ground.");
 	expect(await runCli("12345678901234567890", "12345678901234567890", "school", "blue", "12345678901234567890")).toBe("One day Anna was walking her 12345678901234567890 12345678901234567890 commute to school and found a blue 12345678901234567890 on the ground.");
