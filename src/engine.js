@@ -1,15 +1,27 @@
 const assert = require("assert");
+const path = require("path");
 const fs = require("fs");
 const { promisify } = require("util");
 
 const writeFile = promisify(fs.writeFile);
 
-function commonPaperTemplateEngine(template, ...inputs) {
+function commonPaperTemplateEngine(template, options, ...inputs) {
+	if (typeof options !== "object") {
+		inputs.unshift(options);
+		options = null;
+	}
+
+	const { maxStr } = {
+		maxStr: 20,
+		dataPath: path.join(__dirname, "tmp.txt"),
+		...options,
+	};
+
 	let index = 0;
 
 	return template.replace(/\{\{(.*?)\}\}/g, (full, dataType) => {
 		const i = index;
-		index ++;		
+		index++;		
 		const input = inputs[i];
 
 		assert(!!full.match(/^\{\{[A-Z_]+\}\}$/), `Poorly formatted data-type ${full}`);
@@ -25,7 +37,7 @@ function commonPaperTemplateEngine(template, ...inputs) {
 				return input + "";
 			default:
 				assert(typeof input === "string", `Expected ${dataType} input at index ${i} to be of type "string" but found "${typeof input}"`);
-				assert(input.length <= 20, `Input at index ${i} was too long (max length 100, found ${input.length})`);
+				assert(input.length <= maxStr, `Input at index ${i} was too long (max length ${maxStr}, found ${input.length})`);
 
 				return input;
 		}
