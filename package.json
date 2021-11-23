@@ -1,15 +1,17 @@
 {
-  "name": "common-paper-story-prompt",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "test": "jest"
-  },
-  "author": "Sanford Gifford",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "jest": "^27.3.1",
-    "tabula": "^1.10.0"
-  }
+	"name": "common-paper-story-prompt",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "jest",
+	"engine": "node ./src/engineCli.js",
+	"analytics": "node ./src/analyticsCli.js"
+	},
+	"author": "Sanford Gifford",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"jest": "^27.3.1",
+		"tabula": "^1.10.0"
+	}
 }
