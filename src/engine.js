@@ -1,6 +1,7 @@
 const assert = require("assert");
 const path = require("path");
 const fs = require("fs");
+const { DEFAULT_DATA_PATH } = require("./consts");
 
 function commonPaperTemplateEngine(template, options, ...inputs) {
 	if (typeof options !== "object") {
@@ -11,7 +12,7 @@ function commonPaperTemplateEngine(template, options, ...inputs) {
 
 	const { maxStr, dataPath } = {
 		maxStr: 20,
-		dataPath: path.join(__dirname, "tmp.txt"),
+		dataPath: DEFAULT_DATA_PATH,
 		...options,
 	};
 
