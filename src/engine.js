@@ -20,7 +20,7 @@ function commonPaperTemplateEngine(template, options, ...inputs) {
 	// server we'd want to use an async method.  Rewriting this FUNCTION for async
 	// would only be, like, a minute of work; rewriting the 2 dozen sync tests
 	// I just finished would take longer.
-	if (!fs.existsSync(dataPath)) fs.writeFileSync(dataPath, "w");
+	if (!fs.existsSync(dataPath)) fs.writeFileSync(dataPath, "");
 	const permData = JSON.parse((fs.readFileSync(dataPath) + "") || "{}");
 
 	let index = 0;
