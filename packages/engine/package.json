@@ -1,0 +1,17 @@
+{
+  "name": "common-paper-template-engine",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "dist/engine.js",
+  "types": "./dist/client/WSAssistantClient.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+	  "clearDist": "rm -rf dist",
+	  "build": "npm run clearDist && tsc"
+  },
+  "author": "Sanford Gifford",
+  "license": "ISC"
+}
