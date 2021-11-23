@@ -1,17 +1,40 @@
-## Instructions
+# Common Paper Story Prompt Generator
 
-Thanks for doing this project as part of your interview process. We appreciate your time and want to make this a fun experience. If you have any questions at all, please reach out to us and we'll get back to you.
+A simple command line utility for generating stories.
 
-Fork a copy of this repository to your Github account and when you have completed the project below, send a link to ben@commonpaper.com.
+## Pre-Reqs
 
-## Project
+|requirement|description|
+|-:|:-|
+|[Node.js](https://nodejs.org/en/)|Javascript runtime|
 
-### Story Prompt Generator
+## Setup
 
-One day Anna was walking her {{NUMBER}} {{UNIT_OF_MEASURE}} commute to {{PLACE}} and found a {{ADJECTIVE}} {{NOUN}} on the ground.
+(all commands should be run from the repository directory)
 
-Write a command line application in any language that accepts a json string of key-value inputs for the template above. With valid input, the application sends to STDOUT the story using the inputs provided. For example, "One day Anna was walking her 2 mile commute to school and found a blue rock on the ground." The application stores a record of valid inputs locally in a file. For the template above, you can assume NUMBER to be numerical data and all other inputs to be strings. Set sensible string validations for length.
+|command|description|
+|-:|:-|
+|`$ npm i`|Installs packages from NPM|
+|`$ npm i -D`|Installs packages, skips testing framework|
 
-Write a second command line application that sends to STDOUT statistics about the stored records, including the maximum and minimum values for numerical inputs, the most common responses for string inputs, and anything else you think might be relevant.
+## Running
 
-Instructions for installing and running your applications should be added to this README file.
+(all commands should be run from the repository directory)
+
+|command|description|
+|-:|:-|
+|`$ npm test`|Runs all tests|
+|`$ node ./src/storyGen.js`|Generate a story with inputs.  Arguments are a space separated list of inputs (inputs with spaces may use quotation marks).|
+|`$ node ./src/analytics.js`|Outputs stats on previous stories|
+|`$ npm run storyGen`|Shortcut for `node ./src/storyGen.js`.<br />**NOTE**: *to pass arguments to an npm script you must separate them with a "`--`".  IE: `npm run storyGen -- 3 mile school blue rock`*|
+|`$ npm run analytics`|Shortcut for `node ./src/analytics.js`|
+
+## Environment Variables
+
+This project supports several environment variables which can be set either directly in UNIX or through a [`.env`](https://www.npmjs.com/package/dotenv) file in the root of the repository dir.
+
+|name|default|description|
+|-:|:-|:-|
+|DATA_PATH|`./tmp.json`|Location for the statistics data file|
+|MAX_STR|`20`|Max length for string input values|
+|TEMPLATE|`One day Anna was walking her {{NUMBER}} {{UNIT_OF_MEASURE}} commute to {{PLACE}} and found a {{ADJECTIVE}} {{NOUN}} on the ground.`|Template string for story generation|
