@@ -1,9 +1,21 @@
 {
-	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"rootDir": "./"
+		"target": "es2021",
+		"module": "ES2020",
+		"moduleResolution": "Node",
+		"strict": true,
+		"noImplicitOverride": true,
+		"sourceMap": true,
+		"declaration": true,
+		"declarationMap": true,
+		"composite": true,
+		"noUnusedLocals": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"outDir": "dist",
+		"rootDir": "./src"
 	},
-	"references": [
-		{ "path": "./packages/engine" }
-	]
+	"files": [ "src/index.ts" ]
 }
