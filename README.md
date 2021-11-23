@@ -31,7 +31,7 @@ A simple command line utility for generating stories.
 
 ## Environment Variables
 
-This project supports several environment variables which can be set either directly in UNIX or through a [`.env`](https://www.npmjs.com/package/dotenv) file in the root of the repository dir.
+This project supports several environment variables which can be set either directly in UNIX or through a [`.env`](https://www.npmjs.com/package/dotenv) file in the root of the repository directory.
 
 |name|default|description|
 |-:|:-|:-|
