@@ -23,7 +23,7 @@ A simple command line utility for generating stories.
 
 |command|description|
 |-:|:-|
-|`$ npm test`|Runs all tests|
+|`$ npm test`|Runs all tests (*will* write to data file)|
 |`$ node ./src/storyGen.js`|Generate a story with inputs.  Arguments are a space separated list of inputs (inputs with spaces may use quotation marks).|
 |`$ node ./src/analytics.js`|Outputs stats on previous stories|
 |`$ npm run storyGen`|Shortcut for `node ./src/storyGen.js`.<br />**NOTE**: *to pass arguments to an npm script you must separate them with a "`--`".  IE: `npm run storyGen -- 3 mile school blue rock`*|
